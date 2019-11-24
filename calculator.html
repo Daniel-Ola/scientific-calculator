@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Calculator</title>
+<link rel="stylesheet" href="cal.css" />
+<script type="text/javascript" src="cal.js">
+</script>
+<script type="text/javascript" src="converter.js">
+</script>
+</head>
+
+<body onload="time()">
+<form id="form1" name="form1" method="post" action="">
+   <table width="200" border="1">
+    <tr>
+      <td height="36" colspan="5">
+      	<div id="time" class="t1" style="text-align:center ;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5"><input name="screen" type="text" id="screen" placeholder="0" maxlength="15" readonly="readonly" onclick="face()" /></td>
+    </tr>
+    <tr>
+    	<td colspan="5"><input type="button" value="CONVERTER" id="converter" onclick="reveal()" /></td>
+    </tr>
+    
+    <tr hidden="true" id="hide1">
+      <td><input type="button" name="button3" id="button53" value="mm-cm" onclick="mmcm()" title="mm-cm" /></td>
+      <td><input type="button" name="button3" id="button54" value="cm-mm" onclick="cmmm()" title="cm-mm" /></td>
+      <td><input type="button" name="button3" id="button55" value="in-cm" onclick="incm()" title="inch-cm" /></td>
+      <td><input type="button" name="button3" id="button56" value="mi-km" onclick="mikm()" title="miles-km" /></td>
+      <td><input type="button" name="button3" id="button57" value="km-mi" onclick="kmmi()" title="km-miles" /></td>
+    </tr>
+    <tr hidden="true" id="hide2">
+      <td><input type="button" name="button3" id="button42" value="cm-m" onclick="cmm()" title="cm-m" /></td>
+      <td><input type="button" name="button3" id="button43" value="m-cm" onclick="mcm()" title="m-cm" /></td>
+      <td><input type="button" name="button3" id="button44" value="cm-in" onclick="cmin()" title="cm-inch" /></td>
+      <td><input type="button" name="button3" id="button50" value="m-km" onclick="mkm()" title="m-km" /></td>
+      <td><input type="button" name="button2" id="button52" value="km-m" onclick="kmm()" title="km-m" /></td>
+    </tr>
+    
+    <tr>
+      <td><input type="button" name="button3" id="button5" value="MC" onclick="memcl()" /></td>
+      <td><input type="button" name="button3" id="button30" value="MR" onclick="memrecall()" /></td>
+      <td><input type="button" name="button3" id="button31" value="MS" onclick="memsave()" /></td>
+      <td><input type="button" name="button3" id="button32" value="M+" onclick="memadd()" /></td>
+      <td><input type="button" name="button3" id="button40" value="M-" onclick="memsub()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button26" id="button21" value="EXP" onclick="expo()" /></td>
+      <td><input type="button" name="button27" id="button26" value="x&Lambda;y" onclick="power()" /></td>
+      <td><input type="button" name="button28" id="button27" value="x" onclick="Unknwn1()" /></td>
+      <td><input type="button" name="button29" id="button28" value="y" onclick="Unknwn2()" /></td>
+      <td><input type="button" name="button30" id="button29" value="+/-" onclick="negate()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button31" id="button35" value="sine" onclick="sine()" /></td>
+      <td><input type="button" name="button31" id="button36" value="cos" onclick="cosine()" /></td>
+      <td><input type="button" name="button31" id="button37" value="tan" onclick="tangent()" /></td>
+      <td><input type="button" name="button31" id="button38" value="sqr(x)" onclick="sqr()" /></td>
+      <td><input type="button" name="button31" id="button39" value="∏" onclick="pi()" title="PI" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button" id="button33" value="asin" onclick="asine()()" /></td>
+      <td><input type="button" name="button" id="button51" value="acos" onclick="acose()" /></td>
+      <td><input type="button" name="button" id="button34" value="atan" onclick="atane()" /></td>
+      <td><input name="button" type="button" id="radian" value="deg" onclick="degree()" /></td>
+      <td><input name="button" type="button" id="button41" value="CE" onclick="clearit()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button6" id="button6" value="7" onclick="number(7)"/></td>
+      <td><input type="button" name="button7" id="button7" value="8" onclick="number(8)"/></td>
+      <td><input type="button" name="button8" id="button8" value="9" onclick="number(9)"/></td>
+      <td><input type="button" name="button20" id="button20" value="*" onclick="mult()" /></td>
+      <td><input type="button" name="button15" id="button15" value="&larr;" onclick="bks()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button11" id="button11" value="4" onclick="number(4)" /></td>
+      <td><input type="button" name="button12" id="button12" value="5" onclick="number(5)"/></td>
+      <td><input type="button" name="button13" id="button13" value="6" onclick="number(6)"/></td>
+      <td><input type="button" name="button14" id="button14" value="/" onclick="div()" /></td>
+      <td><input type="button" name="button10" id="button10" value="%" onclick="cent()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button16" id="button16" onclick="number(1)" value="1" /></td>
+      <td><input type="button" name="button17" id="button17" onclick="number(2)" value="2"  /></td>
+      <td><input type="button" name="button18" id="button18" value="3" onclick="number(3)" /></td>
+      <td><input type="button" name="button19" id="button19" value="-" onclick="minus()" /></td>
+      <td><input type="button" name="button9" id="button9" value="&radic;" onclick="sqrut()" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="button21" id="pbtn" onclick='poweron()' value="ON" /></td>
+      <td><input type="button" name="button22" id="button22" value="0" onclick="number(0)"/></td>
+      <td><input type="button" name="button24" id="button24" value="." onclick="dot()" /></td>
+      <td><input type="button" name="button23" id="button23" value="+" onclick="plus()" /></td>
+      <td><input type="button" name="button25" id="button25" value="=" onclick="equals()" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
